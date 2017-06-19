@@ -7,7 +7,13 @@
       + [JAVA代码](#JAVA代码)
       + [service,core,helper等包的具体作用](#service,core,helper等包的具体作用)
   2. [公司代码框架和目录结构](#公司代码框架和目录结构)
-      + [公司代码demo](#公司代码demo)
+- [第三天](#第三天)
+  1. [mybatis自动生成的代码怎么和custom代码怎么配合使用](#mybatis自动生成的代码怎么和custom代码怎么配合使用)
+  2. [redis的使用](#redis的使用)
+- [第四天](#第四天)
+  1. [微服务的概念和使用](#微服务的概念和使用)
+  2. [svn，git的使用和服务的部署](#svn，git的使用和服务的部署)
+- [第五天+第六天](#第五天+第六天)
 
 # 第一天+第二天
 ## 代码规范和命名习惯
@@ -103,7 +109,28 @@ public class TcOrderController{
 }
 ```
 ### service,core,helper等包的具体作用
-
+* interceptor 拦截器,相当于Filter(这个具体可以百度)。
+* controller 控制器，所有url的入口，这里可以引用service,vo,util对入参和service的返回结果进行处理(这个具体可以百度)。
+* service 服务 具体的业务处理的地方，这里可以引用dao,helper,core,vo,model,util层，访问持久层，对数据进行处理，再返回给controller层。
+* dao 对mapper层和redis层进行一层封装，这里可以引用mapper,redis,model,util,model,vo。
+* mapper 数据持久层，这里分autocode和custom,通过mybatis框架访问数据库，最底层。
+* redis 对redis非关系数据库的访问,可以访问，model,vo,util。
+* util 工具包，和业务无关的工具包，这个一般是写一些与项目无关的共用代码。
+* helper 工具包，和util最大的区别在于这个是和业务有关，一帮是跟着项目走,这里可以引用util,vo,model。
+* core 工具包，和util和helper最大的区别在于core包会访问dao层，对业务逻辑进行处理。和service层一样，不过这个地方是将service层里面的代码抽出来形成的一层。
+* model 这个地方是放和数据库表映射的模型
+* vo 对外的value object
 ## 公司代码框架和目录结构
-### 公司代码demo
 具体的demo去可以HR拿，这个就不放在这里了。
+# 第三天
+## mybatis自动生成的代码怎么和custom代码怎么配合使用
+这里差一个demo
+## redis的使用
+这里差一个demo
+# 第四天
+## 微服务的概念和使用
+[spring-boot-cloud](https://github.com/idohoo/spring-boot-cloud-demo "spring-boot-cloud的demo")
+## svn，git的使用和服务的部署
+具体的服务器地址和帐号密码可以找HR要
+# 第五天+第六天
+这个地方到时候可以补充一个案例，对以上所学到的东西做一个总结，也就是写一个实例，包括代码+项目部署。
